@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5cb277351cb00d2e00e19466"},"course_name":"Cpp","course_desc":"C++ is a general-purpose programming language that was developed by Bjarne Stroustrup as an extension of the C language"}
+{"_id":{"$oid":"5cb277cb1cb00d2e00e19469"},"course_name":"Java","course_desc":"Java is a general-purpose programming language that is class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible"}
+{"_id":{"$oid":"5cb27e791cb00d2e00e1946b"},"course_name":"Node Js","course_desc":"Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser"}
+{"_id":{"$oid":"5cb4647172b1ad1680b976f8"},"course_name":"MongoDB","course_desc":"MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata"}
+{"_id":{"$oid":"5cb464df72b1ad1680b976fa"},"course_name":"Android","course_desc":"Android is a mobile operating system developed by Google. It is based on a modified version of the Linux kernel"}
+{"_id":{"$oid":"5cb4650c72b1ad1680b976fb"},"course_name":"Operating Systems","course_desc":"An operating system is system software that manages computer hardware and software resources and provides common services for computer programs"}
+{"_id":{"$oid":"5cba4ba6ab40da1718a538ad"},"course_name":"C","course_desc":"C is a general-purpose, imperative computer programming language, supporting structured programming."}
+{"_id":{"$oid":"5cba4bf4ab40da1718a538ae"},"course_name":"Big data","course_desc":"Big data is a field that treats ways to analyze, systematically extract information from, or otherwise, deal with data sets that are too large."}
+{"_id":{"$oid":"5cba4cce923f9c04940a2c81"},"course_name":"JavaScript","course_desc":"JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that conforms to the ECMAScript specification. "}

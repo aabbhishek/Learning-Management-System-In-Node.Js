@@ -1,0 +1,29 @@
+<div id="upload" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-body">
+          <form id="formUpload" action="/admin/docUpload" enctype="multipart/form-data" method="post">
+            <center><h3>Upload Document</h3></center>
+            <br>
+            <h6><i class="fas fa-exclamation-triangle"></i> <span id="nameTag"></span></h6>
+            <br>
+          <div class="custom-file">
+            <input type="file" name="document" class="custom-file-input" id="uploadFile">
+            <input type="text" id="idMain" name="co_id" style="display:none;">
+            <input type="text" id="CourseMain" name="courseName" style="display:none;">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+          <br>
+          <br>
+          <div class="col-md-12">
+            <button id="upload_file" class="btn btn-block" style="background:#00E676;" onclick="">Upload</button>
+          </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

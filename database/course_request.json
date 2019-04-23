@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5cb57cc8af847d13d8df12ed"},"course_name":"C  ","user_email":"1@gmail.com","status":"approved"}
+{"_id":{"$oid":"5cb57dd352f0882a3873edb0"},"course_name":"Java","user_email":"1@gmail.com","status":"approved"}
+{"_id":{"$oid":"5cbd833c95ef552f14a03173"},"course_name":"Java","user_email":"3@gmail.com","status":"approved"}
+{"_id":{"$oid":"5cbd834595ef552f14a03174"},"course_name":"MongoDB","user_email":"3@gmail.com","status":"rejected"}

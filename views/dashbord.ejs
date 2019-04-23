@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin|Login</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <style>
+      *{
+      font-family: 'Roboto', sans-serif;
+      }
+      body{
+        overflow-x: hidden;
+        background-color: #f3f3f3;
+      }
+      .card{
+          box-shadow: 0 2px 5px rgba(0,0,0,.08);
+          border: none;
+      }.btn{color:#fff;}.btn:hover{color:#fff;}.btn-green{
+        background-color: #00E676 !important;
+      }.btn-red{
+        background-color: #e53935 !important;
+      }.btn-update{
+        background-color: #512DA8 !important;
+      }.btn-calander{
+        background-color: #C2185B !important;
+      }.form-course{
+        border: none;
+        border-bottom: 2px solid #03A9F4;
+        border-radius: 0px;
+        outline: 0px!important;
+      }
+
+    </style>
+  </head>
+  <body>
+    <% include partials/adminNav.ejs %>
+    <div class="col-md-12" style="background:#00E676;color:#fff;"><center>Logged In as :<b ><p id="adminEmail"><%= email %></p></b></center></div>
+    <br>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-subtitle mb-2 text-muted">Add new Course</h5>
+          <div class="form-group">
+            <label for="cn">Course Name</label>
+            <input type="email" class="form-control form-course" id="cn" aria-describedby="cn" placeholder="Enter Course Name" required>
+          </div>
+          <div class="form-group">
+            <label for="cn">Course Description</label>
+            <textarea class="form-control form-course" id="cd" aria-describedby="cd" placeholder="Enter Course Desc..." required></textarea>
+          </div>
+          <button type="button" class="btn  btn-block" style="background:#00C853;" onclick="insertCourse();">Submit</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="padding-left:10px;padding-right:10px;">
+      <div class="col-md-6 col-sm-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-subtitle mb-2 text-muted">Course Request List</h5>
+            <br>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Course Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0;i<data.courseRequest.length;i++) { %>
+                <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%= data.courseRequest[i].course_name %></td>
+                  <td><%= data.courseRequest[i].user_email %></td>
+                  <td><%= data.courseRequest[i].status %></td>
+                  <td>
+                    <button title="Accept" id="<%= i %>" email="<%= data.courseRequest[i].user_email %>" courseName="<%= data.courseRequest[i].course_name %>" class="btn btn-green" onclick="actionCourseList('approved');"><i class="fas fa-check"></i></button>
+                    <button title="Reject" id="<%= i %>" email="<%= data.courseRequest[i].user_email %>" courseName="<%= data.courseRequest[i].course_name %>" class="btn btn-red" onclick="actionCourseList('rejected');"><i class="fas fa-times"></i></button>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-subtitle mb-2 text-muted">Course Managment List</h5>
+            <br>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Course Name</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0;i<data.courseList.length;i++) { %>
+                <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%= data.courseList[i].course_name %></td>
+                  <td>
+                      <button title="Updated Content" courseName="<%= data.courseList[i].course_name %>" class="btn btn-update" onclick="documentMangment();"><i class="fas fa-file-upload"></i></button>
+                      <button title="Manage Calander" courseName="<%= data.courseList[i].course_name %>" class="btn btn-calander" onclick="calanderMangment();"><i class="far fa-calendar-alt"></i></button>
+                      <button title="Remove Course" courseName="<%= data.courseList[i].course_name %>" class="btn btn-red"><i class="fas fa-times"></i></button>
+
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="/assets/js/popover.js"></script>
+  <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="/assets/js/dashbord.js"></script>
+</html>

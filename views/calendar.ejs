@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin|Login</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <style>
+      *{
+      font-family: 'Roboto', sans-serif;
+      }
+      body{
+        overflow-x: hidden;
+        background-color: #f3f3f3;
+      }
+      .card{
+          box-shadow: 0 2px 5px rgba(0,0,0,.08);
+          border: none;
+      }.btn{color:#fff;}.btn:hover{color:#fff;}.btn-green{
+        background-color: #00E676 !important;
+      }.btn-red{
+        background-color: #e53935 !important;
+      }.btn-update{
+        background-color: #512DA8 !important;
+      }.btn-calander{
+        background-color: #C2185B !important;
+      }.form-course{
+        border: none;
+        border-bottom: 2px solid #03A9F4;
+        border-radius: 0px;
+        outline: 0px!important;
+      }.in-text{
+        font-size: 20px;
+        width: 80%;
+        height: 100%;
+        border: 0px;
+        border-bottom: 2px solid black;
+        outline:0px;
+        text-align:center;
+      }.btn-add{
+        background: #00C853;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+        border: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 100px 100px;
+        text-align: center;
+        margin-top: 10px;
+        float: right;
+        font-size: 23px;
+        margin-right: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="row" style="padding:10px 10px 10px 10px;">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <button align="center" title="back" style="background:transparent;border:none;margin-left:96%;font-size:20px;"><i class="fas fa-arrow-left"></i></button>
+            <h4 class="card-subtitle mb-2 text-muted"><%= courseName %> Calendar.</h4>
+
+            <br>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">About</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              <% if(data==''){ %>
+                <tr>
+                  <td colspan="5"><center><h3>No lesson date add new</h3></center></td>
+                </tr>
+
+                <% }else{ %>
+                <% for(var i=0;i<data.length;i++){ %>
+                <tr>
+                  <th scope="row"><input type="text" id="date-<%= i %>" style="width:50%;" class="in-text" value="<%=  data[i].Date %>"></th>
+                  <td>
+                    <input type="text" id="about-<%= i %>" class="in-text" value="<%= data[i].About %>" />
+                  </td>
+                  <td>
+                    <button title="Accept" id="<%= data[i]._id %>" ival="<%= i %>" courseName="<%= courseName %> " class="btn btn-green" onclick="updateData();"><i class="fas fa-check"></i></button>
+                  </td>
+                  <td>
+
+                    <button title="Reject" id="<%= data[i]._id %>" courseName="<%= courseName %>" class="btn btn-red" onclick="deleteDate();"><i class="fas fa-times"></i></button>
+                  </td>
+                </tr>
+                <% } %>
+                <% } %>
+
+              </tbody>
+            </table>
+
+
+
+          </div>
+        </div>
+
+        <button class="btn btn-add" onclick="newOpen();"><i class="fas fa-plus"></i></button>
+
+      </div>
+    </div>
+    <% include partials/insertNewDates.ejs %>
+  </body>
+  <script type="text/javascript" src="/assets/js/popover.js"></script>
+  <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/sweetalert2.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script type="text/javascript" src="/assets/js/Calender.js"></script>
+
+</html>

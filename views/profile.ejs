@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+    *{
+    font-family: 'Roboto', sans-serif;
+    }
+      body{
+        overflow-x: hidden;
+
+        background-color: #f3f3f3;
+      }
+      .under_text{
+        border: none !important;
+        border-bottom: 2px solid #039BE5 !important;
+        outline: 0px!important;
+        border-radius: 0px !important;
+      }.card{
+          box-shadow: 0 2px 5px rgba(0,0,0,.08);
+          border: none;
+      }.btn-card{
+        color: #fff;
+        background-color: #00E676;
+        border-radius: 0px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+  <% include partials/nav.ejs %>
+  <!-- <%= email %> -->
+<br>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"> <i class="fas fa-envelope"></i>  E-Mail Id : <%= email %> </h5>
+
+      </div>
+
+  </div>
+  </div>
+<br>
+  <div class="col-md-12"><h6>Courses List:</h6></div>
+  <% var i=0 %>
+  <% while(i<data.length){  %>
+  <div class="row">
+    <div class="col-md-12 col-sm-12" style="display: flex;">
+      <%  for(var j=0;j<3;j++){ %>
+      <div class="col-md-4 col-sm-12">
+        <div class="card" style="height: 14rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= data[i].course_name %></h5>
+            <p class="card-text"><%= data[i].course_desc %>.</p>
+          </div>
+            <div class="row">
+              <div class="col-md-9" style="padding-right:0px;">
+                <button  type="button" class="btn btn-success  btn-lg btn-block btn-card" course_id="<%= data[i]._id %>" course_name="<%= data[i].course_name %>" onclick="regCourse('<%= email %>');">Register for This course</button>
+              </div>
+              <div class="col-md-3" style="padding-left:0px;">
+                <button type="button" class="btn btn-success  btn-lg btn-block btn-card" course_id="<%= data[i]._id %>" style="background:#64DD17;" course_name="<%= data[i].course_name %>" userEmail="<%= email %>" onclick="chekAndForward();">View</button>
+              </div>
+            </div>
+         </div>
+      </div>
+      <% i++ %>
+      <% } %>
+    </div>
+
+  </div>
+  <br>
+  <%}%>
+<!-- row close -->
+
+  </body>
+  <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/popover.js"></script>
+  <script type="text/javascript" src="/assets/js/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="/assets/js/profile.js"></script>
+</html>

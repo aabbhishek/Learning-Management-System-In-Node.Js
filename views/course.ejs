@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+    *{
+    font-family: 'Roboto', sans-serif;
+    }
+      body{
+        overflow-x: hidden;
+
+        background-color: #f3f3f3;
+      }
+      .under_text{
+        border: none !important;
+        border-bottom: 2px solid #039BE5 !important;
+        outline: 0px!important;
+        border-radius: 0px !important;
+      }.card{
+          box-shadow: 0 2px 5px rgba(0,0,0,.08);
+          border: none;
+      }.btn-card{
+        color: #fff;
+        background-color: #00E676;
+        border-radius: 0px;
+        border: none;
+      }
+      .btn{color:#fff;}.btn:hover{color:#fff;}.btn-green{
+        background-color: #00E676 !important;
+      }.btn-red{
+        background-color: #e53935 !important;
+      }.btn-update{
+        background-color: #512DA8 !important;
+      }.btn-calander{
+        background-color: #C2185B !important;
+      }
+      iframe{
+        width: 100%!important;
+        height: 400px;
+      }
+
+    </style>
+  </head>
+  <body>
+  <% include partials/nav.ejs %>
+  <div class="row" style="padding:10px 10px 10px 10px;">
+    <button align="center" title="back" style="background:transparent;border:none;margin-left:96%;font-size:20px;"><i class="fas fa-arrow-left"></i></button>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header" style="background:#00B0FF;">
+          <br>
+          <h2 class="card-subtitle mb-2 text-muted" style="color:#fff!important;"><%= courseName %> Course Content</h2>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush selected" >
+            <% for(var i=0;i<data.course.length; i++){ %>
+             <li class="list-group-item">
+
+                 <h4><%= data.course[i].Lesson %></h4>
+
+               <div class="row">
+                 <div class="col-md-3">
+                 </div>
+                 <div class="col-md-4">
+
+                 </div>
+                 <div class="col-md-5">
+                   <button class="btn btn-red" onsubmit="event.preventDefault();"  onclick="videoModel('<%= data.course[i].VideoUrl %>')"><i class="fas fa-play"></i></button>
+
+                   <% if(data.course[i].DocumentUrl!="no"){ %>
+                     <form  class="btn" method="post" action="/profile/download" id="download">
+                      <button class="btn btn-update" name="filename" value="<%= data.course[i].DocumentUrl %>"  onclick="doumentDownload();"><i class="fas fa-download"></i></button>
+                     </from>
+
+                   <% } else { %>
+
+                     <button class="btn btn-update" disabled style="margin-left:10px" ><i class="fas fa-download"></i></button>
+                     <% } %>
+                 </div>
+               </div>
+             </li>
+             <% } %>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <!-- div Course Content end -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header" style="background:#FFD600;">
+          <br>
+          <h2 class="card-subtitle mb-2 text-muted" style="color:#fff!important;">Important Date's</h2>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush selected" >
+              <% for(var i=0;i<data.courseCalander.length; i++){ %>
+             <li class="list-group-item">
+
+                 <h3><%= data.courseCalander[i].About %></h3>
+
+
+               <div class="row">
+                 <div class="col-md-6">
+                 </div>
+                 <div class="col-md-3">
+
+                 </div>
+                 <div class="col-md-3" >
+                   <h5 > <%= data.courseCalander[i].Date %></h5>
+                 </div>
+               </div>
+             </li>
+             <% } %>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- div Calander end -->
+  </div>
+<br>
+
+<!-- row close -->
+<% include partials/video.ejs %>
+  </body>
+  <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/popover.js"></script>
+  <script type="text/javascript" src="/assets/js/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="/assets/js/course.js"></script>
+</html>

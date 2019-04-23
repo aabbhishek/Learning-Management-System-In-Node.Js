@@ -1,0 +1,17 @@
+<form method="post" action="/">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control under_text" id="lemail" aria-describedby="emailHelp" placeholder="Enter email" onkeydown="onChnage();" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control under_text" id="lpassword" placeholder="Password" onkeydown="onChnage();" name="password">
+  </div>
+
+
+  <button type="submit" id="singIn_submit" class="btn btn-primary" style="background-color:#21e2b3;border:none;width:40%;" onclick="event.preventDefault();  login();"><i class="fas fa-sign-in-alt"></i> Submit</button>
+
+  <button id="singUp" class="btn btn-primary" style="background-color:#21e2b3;border:none;width:40%;" onclick="event.preventDefault();  switchInput();"> <i class="fas fa-user-plus"></i>  Sing Up</button>
+
+</form>
