@@ -6,7 +6,7 @@ var app=express();
 ObjectID = require('mongodb').ObjectID;
 var urlencoderParser = bodyParser.urlencoded({extended:false});
 var MongoClient = require('mongodb').MongoClient; // mongo Connection
-var url="mongodb+srv://ad:admin@oncluster0-yqalk.mongodb.net/test?retryWrites=true"; //connection string
+var url="Your URL"; //connection string
 var waterfall = require('async-waterfall');
 var multer =require('multer');
 
